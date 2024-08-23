@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://crf7vei62my85"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_a2mtc"]
+[ext_resource type="PackedScene" uid="uid://b56304ahcthmq" path="res://character.tscn" id="1_frne8"]
+[ext_resource type="PackedScene" uid="uid://b6p462tocr5ao" path="res://room.tscn" id="2_r4ryv"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_a2mtc")
+
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="Room" parent="Rooms" instance=ExtResource("2_r4ryv")]
+
+[node name="Character" parent="." instance=ExtResource("1_frne8")]
+position = Vector2(263, 306)
+
+[connection signal="switch" from="Rooms/Room" to="." method="_load_scene"]
